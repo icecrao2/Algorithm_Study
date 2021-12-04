@@ -14,7 +14,7 @@ class PrimeNumber2 {
 
     for(int i = 5 ; i < 1000; i += 2){
         boolean confirm = false;
-        for(int j = 0; prime[ptr] * prime[ptr] <= j; j++){ //제곱근보다 작은 값까지 연산
+        for(int j = 0; prime[ptr] * prime[ptr] <= i; j++){ //제곱근보다 작은 값까지 연산
           if(i % prime[ptr] == 0){
             confirm = true;
             break;
