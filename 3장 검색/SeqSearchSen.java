@@ -2,20 +2,32 @@ package chap01;
 import java.util.Scanner;
 
 
-class SeqSearchSen {  
+class BinSearch {  
   
-  //요솟수가 n인 배열 a에서 key와 같은 요소를 선형 검색합니다.
-  static int seqSearchWen(int[] a, int n, int key){
+  //요솟수가 n인 정렬된 배열 a에서 key와 같은 요소를 이진 검색합니다.
+  static int binSearch(int[] a, int n, int key){
     
-    //보초를 세운다.
-    a[n] = key;
+    int ps = 0;
+    int pc = (n-1)/2;
+    int pl = n-1;
 
-    for(int i = 0 ; i < n; i++){
-      if(a[i] == key){
-        break;
-      }
-    }
+    do{
+      if(a[pc] < key)
+        ps = pc + 1;
+      
+      else if(a[pc] > key)
+        pl = pc - 1;
+      
+      else if(a[pc] == key)
+        return pc;
+      
+      else if(pl == ps)     //답이 안나오면 종료
+        return -1;
 
-    return i == n ? -1 : i;  //검색 실패하면 -1반환
+      
+      pc = (pl/2);
+
+    }while(1)
+
   }
 }
