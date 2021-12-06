@@ -11,7 +11,7 @@ class BinSearch {
     int pc = (n-1)/2;
     int pl = n-1;
 
-    do{
+    while(1)
       if(a[pc] < key)
         ps = pc + 1;
       
@@ -25,9 +25,9 @@ class BinSearch {
         return -1;
 
       
-      pc = (pl/2);
+      pc = (pl + pr)/2;
 
-    }while(1)
+    }
 
   }
 }
