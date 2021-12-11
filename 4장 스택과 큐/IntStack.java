@@ -49,4 +49,31 @@ class IntStack {
       throw new EmptyIntStackException();
     return stk[ptr - 1];
   }
+
+  public int indexOf(int x) {
+    for(int i = max ; i >= 0; i--){
+      if(stk[i] == x) return i;
+    }
+    return -1;
+  }
+  
+  //스택을 비움
+  public void clear() {
+    ptr = 0;
+  }
+
+  public int capacity(){
+    return max;
+  }
+
+  public int size(){
+    return ptr;
+  }
+
+  public boolean isEmpty(){
+    return (ptr <= 0)? true : false ;
+  }
+  public boolean isFull(){
+    return (ptr >= max) ? true : false;
+  }
 }
