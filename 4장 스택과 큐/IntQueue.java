@@ -32,7 +32,7 @@ class IntQueue {
   public int enque(int x) throws OverflowIntQueException {
 
     if(num >= max)
-      throw OverflowIntQueException();
+      throw new OverflowIntQueException();
 
     que[rear++] = x;
     num++;
@@ -46,7 +46,7 @@ class IntQueue {
 
   public int deque() throws EmptyIntQueException {
 
-    if(front <= 0)  throw EmptyIntQueException();
+    if(front <= 0)  throw new EmptyIntQueException();
     int x = que[front++];
     num--;
     //링 버퍼 자료구조
@@ -57,4 +57,52 @@ class IntQueue {
 
   }
 
+  public int peek() throws EmptyIntQueException {
+    
+    if(front <= 0) throw new EmptyIntQueException();
+
+    return que[front];
+  }
+
+  public int indexOf(int x) {
+
+    for(int i = 0 ; i < num; i++){
+
+      int idx = (i + front) % num
+      if(que[idx] == x) return idx;
+    }
+
+    return -1;
+
+  }
+
+
+  public void clear(){
+    front = rear = num = 0;
+  }
+
+  public int capacity(){
+    return max;
+  }
+
+  public int size(){
+    return num;
+  }
+
+  public boolean isEmpty(){
+    return (num <= 0) ? true : false;
+  }
+  public boolean isFull(){
+    return (num >= max) ? true : false;
+  }
+  public void dump(){
+    if(num <= 0)
+      System.out.pritntln("큐가 비어있습니다.");
+
+    else {
+      for(int i = 0 ; i < num ; i++)
+        System.out.print(que[(i+front) % max] + " ");
+      System.out.println();
+    } 
+  }
 }
