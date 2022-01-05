@@ -50,7 +50,7 @@ class HeapSort {
 
       int max = left; 
 
-      int parent = (left-1)/2;      
+      int parent = (left - 1)/2;      
 
       if(max > a[parent])
         swap(a, parent, max);
