@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 class HeapSort {  
   
+  
 
   static void swap(int[] a, int idx1, idx2){
     int t = a[idx1];
@@ -17,9 +18,17 @@ class HeapSort {
     int size = n;
     n = (n-2)/2;
 
+    if(size == 0 || size == 1) return;
+
+    if(size == 2){
+      if(a[0] > a[1]) swap(a, 0, 1);
+    }
+
    for(int i = n; i >= 0; i--){
     
-      if( (n*2+2) >= size ) 
+      if( (n*2+1) >= size ) 
+        return;
+      else if((n*2+2) >= size )
         downHeap(a, (n*2+1));
       else
         downHeap(a, (n*2+1), (n*2+2));
@@ -30,6 +39,7 @@ class HeapSort {
 
 
   static void downHeap(int[] a, int left, int right) {
+
 
       int max;
       
@@ -42,12 +52,20 @@ class HeapSort {
 
       if(max > a[parent])
         swap(a, parent, max);
+      else 
+        return;
 
-      downHeap(a, max);
+      if( (n*2+1) >= size ) 
+        return;
+      else if( (n*2+2) >= size ) 
+        downHeap(a, max*2+1);
+      else
+        downHeap(a, max*2+1, max*2+2);
+
   }
 
   static void downHeap(int[] a, int left) {
-
+    
       int max = left; 
 
       int parent = (left - 1)/2;      
@@ -55,7 +73,12 @@ class HeapSort {
       if(max > a[parent])
         swap(a, parent, max);
 
-      downHeap(a, max);
+      if( (n*2+1) >= size ) 
+        return;
+      else if( (n*2+2) >= size ) 
+        downHeap(a, max*2+1);
+      else
+        downHeap(a, max*2+1, max*2+2);
   }
 
 
