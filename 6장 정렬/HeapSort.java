@@ -72,13 +72,9 @@ class HeapSort {
 
       if(max > a[parent])
         swap(a, parent, max);
+      
 
-      if( (n*2+1) >= size ) 
-        return;
-      else if( (n*2+2) >= size ) 
-        downHeap(a, max*2+1);
-      else
-        downHeap(a, max*2+1, max*2+2);
+      return;
   }
 
 
