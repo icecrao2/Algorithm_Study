@@ -21,7 +21,7 @@ class HeapSort {
     if(size == 0 || size == 1) return;
 
     if(size == 2){
-      if(a[0] > a[1]) swap(a, 0, 1);
+      if(a[0] > a[1]) swap(a, 0, 1); return;
     }
 
    for(int i = n; i >= 0; i--){
@@ -55,9 +55,9 @@ class HeapSort {
       else 
         return;
 
-      if( (n*2+1) >= size ) 
+      if( (max*2+1) >= size ) 
         return;
-      else if( (n*2+2) >= size ) 
+      else if( (max*2+2) >= size ) 
         downHeap(a, max*2+1);
       else
         downHeap(a, max*2+1, max*2+2);
