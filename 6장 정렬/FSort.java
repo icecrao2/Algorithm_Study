@@ -17,10 +17,6 @@ class FSort {
 
     int[] f = new int[max];
 
-    for(int i = 0 ; i < max ; i++){
-      f[i] = 0;
-    }
-    
     for(int i = 0 ; i < n ; i++){
       f[a[i]]++;
     }
