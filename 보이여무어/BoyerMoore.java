@@ -30,7 +30,7 @@ class Boyer_Moore {
           if(trigger == true){
             pt--;
           }
-        else
+          else
             pt = pt + patlen - i - 1;
         }
 
