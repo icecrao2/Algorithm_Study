@@ -26,12 +26,18 @@ class Boyer_Moore {
         }
 
         else if(pat.charAt(i) == txt.charAt(pt)){
-          pt = pt + patlen - i - 1;
+          
+          if(trigger == true){
+            pt--;
+          }
+        else
+            pt = pt + patlen - i - 1;
         }
 
         else trigger = false;
-
       }
+
+      if(trigger == true) return pt;
 
     }
 
